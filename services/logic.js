@@ -69,8 +69,35 @@ const deleteEmployee = (id) => {
 
 }
 
+//get a particular employee from database
+
+const getAnEmployee = (id) => {
+    return db.employee.findOne({id}).then((result) => {//result - details of an employee
+        if(result){
+            return {
+                statusCode:200,
+                employees:result
+            }
+        } else {
+
+            return{
+                statusCode:404,
+                message:'cant find employee'
+            }
+
+        }
+
+    })
+
+
+
+}
+
+
+
 module.exports = {
     getAllEmployees,
     addEmployee,
-    deleteEmployee
+    deleteEmployee,
+    getAnEmployee
 }

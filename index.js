@@ -53,3 +53,12 @@ emsServer.delete('/delete-an-employee/:id',(req,res) => {
         (response);
     })
 })
+
+
+//Api call for get an employee details
+emsServer.get('/get-an-employee/:id',(req,res)=>{
+    logic.getAnEmployee(req.params.id).then((response) => {
+        //respons - an employees detail
+        res.status(response.statusCode).json(response);
+    })
+})
