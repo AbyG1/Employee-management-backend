@@ -62,3 +62,13 @@ emsServer.get('/get-an-employee/:id',(req,res)=>{
         res.status(response.statusCode).json(response);
     })
 })
+
+
+//Api call for update  an employee details
+
+
+emsServer.post('/update-an-employee/:id',(req,res)=>{
+    logic.updateAnEmployee(req.params.id,req.body.name,req.body.age,req.body.designation,req.body.salary).then((response)=>{//response - an employees details
+        res.status(response.statusCode).json(response);
+    })
+})
